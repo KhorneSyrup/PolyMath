@@ -6,11 +6,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.minecraft.creativetab.CreativeTabs;
 
 public class mana_Potion extends Item {
 	public mana_Potion()
 	{
-		this.setMaxStackSize(1000);
+		this.setMaxStackSize(64);
 		this.setCreativeTab(PolyMathCreativeTab.PolyMathCreativeTab);
 	}
 
