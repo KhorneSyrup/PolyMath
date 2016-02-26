@@ -1,0 +1,96 @@
+include RobIdeas
+include ShadowDocs
+
+/* reminders
+Strength //influences maximum damage output
+Vitality //influences maximum health
+Agility //influences movement speed
+Dexterity //influences attack speed
+Intelligence //influences magic damage and abilities
+Willpower //influences maximum mana
+Perception //influences ability to see health and weakness of enemies
+Luck //increases droprate of rare items and gold
+
+Primary Classes {}
+	Paladin //Heavy armor, Heavy slow attack, Taunt, Block massive amounts of damage.
+	Cleric //Light Armor, Heavy Healing spells, Area heals, revives.
+
+	Wizard //Light Armor, Light attack, Uses Heat, Cold, Earth, Wind Magic, Golems/familiars.
+	Berzerker //Light armor, Heavy fast attack, Regen a small amount health from dealing damage, Rage mode with Fast Movement speed.
+
+	Sorceror //Light Armor, Uses Void magic, Long range high damage spells, Creates Debuffs.
+	Necromancer //Medium Armor, Medium attack, Minions, Weak area Poisons.
+	
+	Ranger // Bonus Carryweight, Can go longer without sleep/food, Bonus for horse speed/health, Cheetahs and other animal mobs don't attack, Better Swimming, Mob Tracking, Biome Tracking
+	Shadow //Light Armor, High damage single target attacks, Fast Movement speed, Cloaking.
+}
+	
+Secondary Classes {
+	Miner // Bonus stacking items, Chance to get more ore, Faster mining, Seeing in darkness better
+	Metallugist // Bonus to repairing items, longer lasting tools, Bonus to smelting
+	Farmer // Growing and Harvesting boosts, more healing from food items, buffs from food items, More yield from livestock
+	Architect // Longer reach to place / break blocks, Chance to get more blocks from crafting, Special brick recipies for carved blocks, Less chance of creeper agro
+	Enchanter //
+	Alchemist //
+	Engineer // Red Stone, railroads
+	
+}
+
+Additions to Other Classes {
+	Wizard // Earth Ability to create a rockwall infront of them, potion crafting
+	Cleric // Blessing items
+	Archer // Fire more than one arrow at a time, farther flying arrows, Attach items to arrows to transport them
+	Berzerker // have less health by default, or health debuff when not killing
+	Paladin // bonus crits to "evil" monsters
+	Shadow // low light buffs
+}
+
+Unplaced Classes {
+	// Able to make a temporary magic 'light' bridge block that fades after a few seconds to make it over gaps, drains mana
+	// Ability to teleport friends or to friends
+	// Weather ability to cause rain, snow, or shine
+	// Surely the Wizard, Sorceror, Necromancer, and Cleric can be condenced into fewer classes with branching spell paths
+	// Magic or Luck to ward monsters away or make them temporarily scared
+	// Small chance that when an item is about to break, it gets more durrability or doesn't completely break
+	// Chance that when you are about to die, you teleport to your bed
+}
+
+Crafting {
+	// Leather armor components is needed in other armors
+	// quality of the components used effects the outcome of the item you're making
+	// you can use low quality components, but there's a chance it will suck or break
+	// redo all crafting recipies
+	// poison mushrooms / soup
+	// crafting tools requires more components like rocks and string
+	// Trunk-Log-planks-sticks-twigs
+	// Stone-rocks-sharpened rocks-pebbles
+	// planks are an item that can be made into wood flooring
+	// sharpening repairs items, unless they are broken somehow
+	// broken items are two items, which can be put back together
+	// broken items lose enchantments / blessings
+	// sunglasses yo
+	// using coal / carbon and iron to make steel
+	// hide goes into making leather and then hardened leather
+	// wool padding / clothing
+	// wool-cotton-string-cloth
+	// cloth+cotton+string = padding
+	// padding with leather makes padded leather to make armor
+	// leather hat does nothing :(
+	// watering can for tending to crops
+	// weed the crops
+	// bugs that eat the plants
+	// tongs to get metal out of a furnace
+	// crucible, furnace, trough
+	// hitting a sword with a hammer after it's heated
+	// bone armor
+}
+
+Fatigue Meter {
+	// No shoes takes it down
+	// sleep deprevation
+	// 
+}
+
+Thirst Meter {
+	// Drink from water sources, bad sources poison, ocean bad, filter water, boil water
+}
