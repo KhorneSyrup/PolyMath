@@ -1,22 +1,23 @@
 package KhorneSyrup.PolyMath.init.PMItems;
 
+import KhorneSyrup.PolyMath.PolyMath;
 import KhorneSyrup.PolyMath.Common.lib.PolyMathPlayer;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemUseMana extends Item {
+public class ItemUseMana extends PolyMathBaseItem {
     public ItemUseMana()
     {
-        this.setMaxStackSize(6);
-        this.setCreativeTab(CreativeTabs.tabMisc);
-        this.setUnlocalizedName("ItemUseMana");
+    	super();
+        setMaxStackSize(6);
+        setCreativeTab(CreativeTabs.tabMisc);
+        setUnlocalizedName("ItemUseMana");
     }
 
 	@Override
-	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player)
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
 		if (!world.isRemote)
 		{
@@ -25,13 +26,15 @@ public class ItemUseMana extends Item {
 			if (props.consumeMana(10))
 			{
 				System.out.println("[MANA CONSUMED] Sufficient Mana for action!");
+				PolyMath.logger.info("Player had enough mana. Do something Awesome!");
 			}
 			else
 			{
 				System.out.println("[INSUFFICIENT MANA]");
+				PolyMath.logger.info("Player ran out of mana!!!");
 			}
 		}
-		return itemstack;
+		return stack;
 	}
 }
 

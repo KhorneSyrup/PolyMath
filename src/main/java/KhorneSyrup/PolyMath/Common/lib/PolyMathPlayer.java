@@ -166,6 +166,7 @@ public final class PolyMathPlayer implements IExtendedEntityProperties {
 		properties.setInteger("AttributePoints", this.currentAttributePoints);
 
 
+
 		//Add custom tags to player
 		compound.setTag(EXT_PROP_NAME, properties);
 	}
@@ -220,6 +221,7 @@ public final class PolyMathPlayer implements IExtendedEntityProperties {
 
 	public final void setCurrentMana(int amount) {
 		player.getDataWatcher().updateObject(MANA_WATCHER, amount > 0 ? (amount < maxMana ? amount : maxMana) : 0);
+		player.getDataWatcher().updateObject(MANA_WATCHER, getCurrentMana() > maxMana ? maxMana : getCurrentMana());
 		}
 
 	public final int getMaxMana() {
@@ -233,18 +235,17 @@ public final class PolyMathPlayer implements IExtendedEntityProperties {
 
 	public final boolean regenMana(int amount)
 	{
-		boolean full = (amount + getCurrentMana()) >= this.maxMana;
+		boolean full = (amount + getCurrentMana()) >= maxMana;
 		setCurrentMana(getCurrentMana() + amount);
 		return full;
 	}
 
-
 	public boolean consumeMana(int amount)
 	{
 		//Make sure we have enough mana.
-		boolean sufficient = amount <= this.currentMana;
+		boolean sufficient = amount <= getCurrentMana();
 		//Consume the manas!
-		this.currentMana -= (amount < this.currentMana ? amount : this.currentMana);
+		setCurrentMana(getCurrentMana() - amount);
 		return sufficient;
 
 	}

@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 
-public class mana_Potion extends Item
+public class mana_Potion extends PolyMathBaseItem
 {
 	private int strength = 10;
     public mana_Potion()
@@ -71,7 +71,7 @@ public class mana_Potion extends Item
     public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn)
     {
     	PolyMathPlayer props = PolyMathPlayer.get(playerIn);
-    	if (props.regenMana(strength)) {
+    	if (!props.regenMana(strength)) {
     		playerIn.setItemInUse(itemStackIn, this.getMaxItemUseDuration(itemStackIn));
     		playerIn.addChatMessage(new ChatComponentText("Mana Restored" + ":" + strength));
     		playerIn.addChatMessage(new ChatComponentText("CurrentMana" + ":" + props.getCurrentMana()));
