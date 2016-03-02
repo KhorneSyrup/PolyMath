@@ -19,8 +19,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class PolyMathGui extends Gui{
 	private Minecraft mc;
 	//Declare resource Locations for HSM bars.
-	private static final ResourceLocation manaBarTexture = new ResourceLocation("PM", "textures/gui/mana_bar.png");
-	private static final ResourceLocation manaBarTextureFill = new ResourceLocation( "PM", "textures/gui/mana_bar2.png");
+	private static final ResourceLocation GuiBackground = new ResourceLocation("PM", "textures/gui/gui_background.png");
+	private static final ResourceLocation ManaBarTexture = new ResourceLocation( "PM", "textures/gui/mana_bar.png");
 	private static final ResourceLocation StaminaBarTexture = new ResourceLocation("PM", "textures/gui/stamina_bar.png");
 	private static final ResourceLocation HealthBarTexture = new ResourceLocation("PM", "textures/gui/health_bar.png");
 
@@ -47,9 +47,10 @@ public class PolyMathGui extends Gui{
 		{
 			return;
 		}
-
-		int xPos = 2;
-		int yPos = 2;
+		int xPosGuiBase = 2;
+		int yPosGuiBase = 2;
+		int xPosBars = 25;
+		int yPosBars = 4;
 
 		//set mana bar width based on max mana
 
@@ -58,7 +59,9 @@ public class PolyMathGui extends Gui{
 		 * currently *55 does not make me happy.
 		 */
 
-		int manaBarWidth = (int)(((float) props.getCurrentMana() / props.getMaxMana()*55));
+		int healthBarWidth = (int)(((float) props.getCurrentHealth() / props.getMaxHealth()*91));
+		int staminaBarWidth = (int)(((float) props.getCurrentStamina() / props.getMaxStamina()*91));
+		int manaBarWidth = (int)(((float) props.getCurrentMana() / props.getMaxMana()*91));
 
 		//Make sure texture appears true
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
@@ -67,12 +70,25 @@ public class PolyMathGui extends Gui{
 		GL11.glDisable(GL11.GL_LIGHTING);
 
 		//Bind texture to render engine
-		this.mc.getTextureManager().bindTexture(manaBarTexture);
-		this.drawTexturedModalRect(xPos, yPos, 0, 0, 200, 6);
-		this.mc.getTextureManager().bindTexture(manaBarTextureFill);
-		this.drawTexturedModalRect(xPos, yPos, 0, 0, manaBarWidth, 6);
-		String s = props.getCurrentMana() + "/" + props.getMaxMana();
-		this.mc.fontRendererObj.drawString(s, xPos, yPos, 9999999);
+		this.mc.getTextureManager().bindTexture(GuiBackground);
+		this.drawTexturedModalRect(xPosGuiBase, yPosGuiBase, 0, 0, 200, 31);
+
+		//Draw Health Bar
+		this.mc.getTextureManager().bindTexture(HealthBarTexture);
+		this.drawTexturedModalRect(xPosBars, yPosBars, 0, 0, healthBarWidth, 8);
+		String healthStatus = props.player.getHealth() + "/" + props.player.getMaxHealth();
+		this.mc.fontRendererObj.drawString(healthStatus, xPosBars+23, yPosBars, 9999999);
+		//Draw Stamina Bar
+		this.mc.getTextureManager().bindTexture(StaminaBarTexture);
+		this.drawTexturedModalRect(xPosBars, yPosBars+10, 0, 0, manaBarWidth, 8);
+		String staminaStatus = props.getCurrentMana() + "/" + props.getMaxMana();
+		this.mc.fontRendererObj.drawString(staminaStatus, xPosBars+23, yPosBars+10, 9999999);
+		//Draw Mana Bar
+		this.mc.getTextureManager().bindTexture(ManaBarTexture);
+		this.drawTexturedModalRect(xPosBars, yPosBars+20, 0, 0, manaBarWidth, 8);
+		String manaStatus = props.getCurrentMana() + "/" + props.getMaxMana();
+		this.mc.fontRendererObj.drawString(manaStatus, xPosBars+23, yPosBars+20, 9999999);
+
 		GlStateManager.popAttrib();
 
 		}

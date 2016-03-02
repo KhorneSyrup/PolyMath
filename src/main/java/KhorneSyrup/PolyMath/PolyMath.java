@@ -53,8 +53,7 @@ public final class PolyMath {
 	public static final Logger logger = LogManager.getLogger(MOD_ID);
 
 	@Mod.EventHandler
-	public void preInit(FMLPreInitializationEvent event)
-	{
+	public void preInit(FMLPreInitializationEvent event) {
 		//Logger.info("Beginning Pre-Init");
 		Configuration config = new Configuration(new File(event.getModConfigurationDirectory().getAbsolutePath() + "PolyMath.cfg"));
 		config.load();
@@ -67,10 +66,7 @@ public final class PolyMath {
 		PacketDispatcher.registerPackets();
 	}
 	@Mod.EventHandler
-	public void Init(FMLInitializationEvent event)
-	{
-
-
+	public void Init(FMLInitializationEvent event) {
 		proxy.registerRenders();
 
 
@@ -86,8 +82,7 @@ public final class PolyMath {
 
 	}
 	@Mod.EventHandler
-	public void postInit(FMLPostInitializationEvent event)
-	{
+	public void postInit(FMLPostInitializationEvent event) {
 		if (FMLCommonHandler.instance().getEffectiveSide().isClient())
 			MinecraftForge.EVENT_BUS.register(new PolyMathGui(Minecraft.getMinecraft()));
 

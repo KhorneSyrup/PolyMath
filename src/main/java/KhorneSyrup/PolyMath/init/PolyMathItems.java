@@ -17,26 +17,21 @@ public class PolyMathItems {
 		blackIron_sword = new Item().setUnlocalizedName("blackIron_sword");
 		mana_Potion = new mana_Potion();
 		ItemUseMana = new ItemUseMana();
-
-
 	}
 
-	public static void register()
-	{
+	public static void register() {
 		GameRegistry.registerItem(blackIron_sword, blackIron_sword.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(mana_Potion, mana_Potion.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(ItemUseMana, ItemUseMana.getUnlocalizedName().substring(5));
 	}
 
-	public static void registerRenders()
-	{
+	public static void registerRenders() {
 		registerRender(blackIron_sword);
 		registerRender(mana_Potion);
 		registerRender(ItemUseMana);
 	}
 
-	public static void registerRender(Item item)
-	{
+	public static void registerRender(Item item) {
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(PolyMath.MOD_ID + ":" + item.getUnlocalizedName().substring(5), "inventory"));
 	}
 }

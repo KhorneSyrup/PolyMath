@@ -8,8 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class ItemUseMana extends PolyMathBaseItem {
-    public ItemUseMana()
-    {
+    public ItemUseMana() {
     	super();
         setMaxStackSize(6);
         setCreativeTab(CreativeTabs.tabMisc);
@@ -17,19 +16,15 @@ public class ItemUseMana extends PolyMathBaseItem {
     }
 
 	@Override
-	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
-	{
-		if (!world.isRemote)
-		{
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+		if (!world.isRemote) {
 			PolyMathPlayer props = PolyMathPlayer.get(player);
 
-			if (props.consumeMana(10))
-			{
+			if (props.consumeMana(10)) {
 				System.out.println("[MANA CONSUMED] Sufficient Mana for action!");
 				PolyMath.logger.info("Player had enough mana. Do something Awesome!");
 			}
-			else
-			{
+			else {
 				System.out.println("[INSUFFICIENT MANA]");
 				PolyMath.logger.info("Player ran out of mana!!!");
 			}
